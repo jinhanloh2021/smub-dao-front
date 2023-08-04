@@ -71,6 +71,8 @@ A future improvement would be to make the functions more dynamic, allowing peopl
 
 Checkout the DAO contracts, deployment and testing scripts at this [repo](https://github.com/jinhanloh2021/dao-smub).
 
+YouTube walkthrough [here](https://youtu.be/G5uPGDqy9LY)
+
 ### Built With
 
 - NextJs
@@ -130,6 +132,8 @@ npm run dev
 
 ## Code Rundown
 
+See [YouTube](https://youtu.be/G5uPGDqy9LY) for full rundown
+
 The main functionality of interacting with smart contracts requires 3 entities
 
 - Signer
@@ -151,8 +155,8 @@ This then provides an interface to call contract functions and query events from
 
 ## Roadmap
 
-- [✅] Basic proposal lifecycle
-- [✅] Basic proposal list
+- [x] Basic proposal lifecycle
+- [x] Basic proposal list
 - [ ] Error prevention for proposal functions
 - [ ] New proposal form
 - [ ] Detailed proposal page
@@ -182,7 +186,7 @@ Don't forget to give the project a star! Thanks again!
 
 ## Contact
 
-Project Link: [https://github.com/jinhanloh2021/dao-smub](https://github.com/jinhanloh2021/dao-smub)
+Project Link: [https://github.com/jinhanloh2021/dao-smub](https://github.com/jinhanloh2021/smub-dao-front)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
