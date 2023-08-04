@@ -14,6 +14,7 @@ import {
   smubAddress,
   ZERO_VALUE,
 } from '@/constants';
+import Link from 'next/link';
 const AppContext = createContext<any>(null);
 
 export default function Home() {
@@ -73,6 +74,9 @@ export default function Home() {
         description
       );
       console.log(`TxResponse: ${JSON.stringify(txResponse)}`);
+      const txReceipt = await txResponse.wait();
+      console.log(`TxReceipt: ${JSON.stringify(txReceipt)}`);
+      console.log(`Proposal events: ${txReceipt.events}`);
     }
   };
   const vote = async (id: BigNumber, way: number, reason: string) => {
@@ -159,7 +163,13 @@ export default function Home() {
   return (
     <AppContext.Provider value={{ walletConnected }}>
       <main className='flex min-h-screen flex-col items-center justify-between p-24 font-EBGaramond'>
-        <Button onClick={() => connect()} disabled={walletConnected}>
+        <Link href={'/proposals'} className='text-blue-400 underline'>
+          All proposals
+        </Link>
+        <Button
+          onClick={async () => await connect()}
+          disabled={walletConnected}
+        >
           {walletConnected ? 'Connected' : 'Connect'}
         </Button>
         <Button
@@ -177,7 +187,9 @@ export default function Home() {
           Propose
         </Button>
         <h3>{`Proposal ID: ${proposalId}`}</h3>
-        <Button onClick={() => vote(proposalId, WAY, VOTE_REASON)}>Vote</Button>
+        <Button onClick={async () => await vote(proposalId, WAY, VOTE_REASON)}>
+          Vote
+        </Button>
         <Button
           onClick={() =>
             queue(PROPOSAL_DESCRIPTION, ZERO_VALUE, FUNC, SET_EXCO_ARGS)
@@ -186,8 +198,8 @@ export default function Home() {
           Queue
         </Button>
         <Button
-          onClick={() =>
-            execute(PROPOSAL_DESCRIPTION, ZERO_VALUE, FUNC, SET_EXCO_ARGS)
+          onClick={async () =>
+            await execute(PROPOSAL_DESCRIPTION, ZERO_VALUE, FUNC, SET_EXCO_ARGS)
           }
         >
           Execute
