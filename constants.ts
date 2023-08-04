@@ -1,5 +1,16 @@
-export const govContractAddress = '0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9'; // on hardhat network, could change
-export const smubAddress = '0xa513E6E4b8f2a923D98304ec87F64353C4D5C853'; // on hardhat network
+import { BigNumber } from './ethers-5.1.esm.min';
+
+export const govContractAddress = '0x4De1EDda4E86D52384d0342eC7F016fc67bA9440'; // deployed on Sepolia
+export const smubAddress = '0xFa3edDdde17B84bE990fb209dB659981c462Bc28'; // deployed on Sepolia
+
+export const PROPOSAL_DESCRIPTION =
+  'Proposal Description. I am setting Jin Han to be president. Change this to prevent same proposalId.';
+export const WAY = 1;
+export const VOTE_REASON = 'Jin Han is the best';
+
+export const FUNC = 'setExco';
+export const SET_EXCO_ARGS = [0, 'Jin Han']; // update when re-proposing, else error
+export const ZERO_VALUE = BigNumber.from(0);
 export const govAbi = [
   {
     inputs: [
